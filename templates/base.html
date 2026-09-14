@@ -5,6 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Biblioteca Escolar</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 
@@ -16,16 +19,18 @@
 
 
         <nav>
-            <a href="/">Início</a> |
+            <a href="/">Início</a>
             <a href="/alunos">Alunos</a>
         </nav>
-
-
-        <hr>
     </header>
+
+
     <main>
         {% block conteudo %}
         {% endblock %}
     </main>
+
+
 </body>
 </html>
+
