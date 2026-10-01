@@ -1,16 +1,12 @@
 {% extends "base.html" %}
 
-
 {% block conteudo %}
 
-
 <h2>Empréstimos Cadastrados</h2>
-
 
 <p>
     <a href="/emprestimos/novo">Registrar novo empréstimo</a>
 </p>
-
 
 <table>
     <thead>
@@ -26,24 +22,20 @@
         </tr>
     </thead>
 
-
     <tbody>
         {% for emprestimo in emprestimos %}
         <tr>
-            <td>{{ emprestimo.id_emprestimo }}</td>
-            <td>{{ emprestimo.aluno }}</td>
-            <td>{{ emprestimo.livro }}</td>
-            <td>{{ emprestimo.bibliotecario }}</td>
+            <td>{{ emprestimo.id_emprestimo or emprestimo.id }}</td>
+            <td>{{ emprestimo.nome_aluno }}</td>
+            <td>{{ emprestimo.titulo_livro }}</td>
+            <td>{{ emprestimo.nome_bibliotecario }}</td>
             <td>{{ emprestimo.data_emprestimo }}</td>
-            <td>{{ emprestimo.data_prevista_devolucao }}</td>
-            <td>{{ emprestimo.data_devolucao }}</td>
+            <td>{{ emprestimo.data_devolucao_prevista or emprestimo.data_devolucao }}</td>
+            <td>{{ emprestimo.data_devolucao if emprestimo.data_devolucao else '-' }}</td>
             <td>{{ emprestimo.status }}</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-
 {% endblock %}
-
-
